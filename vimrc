@@ -1,17 +1,19 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Bundle 'gmarik/Vundle.vim'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 "Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
 "Bundle 'yegappan/grep'
 
+call vundle#end()
 filetype plugin indent on
-:filetype plugin on 
+
+:filetype plugin on
 :set spell spelllang=en_us
 
 set tags=./tags;/
@@ -86,4 +88,5 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-:let Grep_Default_Filelist = '*.c *.h *.go' 
+:let Grep_Default_Filelist = '*.c *.h *.go'
+
