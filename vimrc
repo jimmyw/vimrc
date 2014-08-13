@@ -6,8 +6,10 @@ call vundle#begin()
 Bundle 'gmarik/Vundle.vim'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
-"Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'nsf/gocode', {'rtp': 'vim/'}
+Bundle 'fsouza/go.vim'
 "Bundle 'yegappan/grep'
 
 call vundle#end()
@@ -16,49 +18,53 @@ filetype plugin indent on
 :filetype plugin on
 :set spell spelllang=en_us
 
-set tags=./tags;/
 autocmd BufWritePre *.go Fmt
 
-set expandtab
-set tabstop=2
-set shiftwidth=2
-
+set backspace=2
+set bg=dark
 set encoding=utf-8
+set expandtab
 set fileencodings=utf-8
-set termencoding=utf-8
-set title
-set smartindent
-set showmatch
-set number
-set mouse=i
-set ls=2
-set statusline=%F%m%r%h%w\ ascii=\%03.3b\ hex=\%02.2B\ pos=%04l,%04v(%04c)\ (%p%%)\ len=%L\
-set wildmode=longest:list
 set hlsearch
 set incsearch
+set ls=2
+set mouse=i
+set number
+set shiftwidth=2
+set showmatch
+set smartindent
+set statusline=%F%m%r%h%w\ ascii=\%03.3b\ hex=\%02.2B\ pos=%04l,%04v(%04c)\ (%p%%)\ len=%L\
+set tabpagemax=100
+set tabstop=2
+set tags=./tags;/
+set termencoding=utf-8
+set title
 set viminfo='10,\"100,:20,%,n~/.viminfo
-set bg=dark
+set wildmode=longest:list
+
 :syntax on
 
 map <F1> :tabp<CR>
 map <F2> :w<CR>
 map <F3> :tabn<CR>
+map <F4> :%s/\s\+$//<CR>
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map <F6> :NERDTree<CR>
+map <F8> :Fmt<CR>
 map <F10> :q<CR>
 
 "Ctrl - k, jump to tag in new tab
 nmap <C-k> <C-w><C-]><C-w>T
 
+"Git plugin
+nmap ; <Plug>GitGutterNextHunk
+nmap ' <Plug>GitGutterPrevHunk
 nmap ö <Plug>GitGutterPrevHunk
 nmap ä <Plug>GitGutterNextHunk
 
 "Disable ex mode
 map Q <Nop>
 
-"Enable mouse scrolling
-"set mouse=a
-set tabpagemax=100
 
 "Ctrl x and Ctrl c
 vmap <C-x> :!pbcopy<CR>  
