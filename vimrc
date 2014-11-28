@@ -10,6 +10,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'fsouza/go.vim'
+Bundle 'kien/ctrlp.vim'
 "Bundle 'yegappan/grep'
 
 call vundle#end()
@@ -41,6 +42,11 @@ set termencoding=utf-8
 set title
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set wildmode=longest:list
+set scrolloff=4
+
+" Will make vim little more snappy
+"set lazyredraw
+"set ttyfast
 
 :syntax on
 
@@ -56,6 +62,8 @@ map <F10> :q<CR>
 "Ctrl - k, jump to tag in new tab
 nmap <C-k> <C-w><C-]><C-w>T
 
+nmap ,h :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+
 "Git plugin
 nmap ; <Plug>GitGutterNextHunk
 nmap ' <Plug>GitGutterPrevHunk
@@ -67,7 +75,7 @@ map Q <Nop>
 
 
 "Ctrl x and Ctrl c
-vmap <C-x> :!pbcopy<CR>  
+vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 filetype indent on
