@@ -11,7 +11,9 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'fsouza/go.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'FredKSchott/CoVim'
+
+" Tool for co-op vimm
+"Bundle 'FredKSchott/CoVim'
 "Bundle 'yegappan/grep'
 
 call vundle#end()
