@@ -4,16 +4,16 @@ filetype off                  " required!
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Bundle 'gmarik/Vundle.vim'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'fsouza/go.vim'
-Bundle 'kien/ctrlp.vim'
-
+"Bundle 'kien/ctrlp.vim'
 " Tool for co-op vimm
 "Bundle 'FredKSchott/CoVim'
+Bundle 'kshenoy/vim-signature'
 "Bundle 'yegappan/grep'
 
 call vundle#end()
@@ -61,6 +61,8 @@ map <F4> :%s/\s\+$//<CR>
 map <F6> :NERDTree<CR>
 map <F8> :Fmt<CR>
 map <F10> :q<CR>
+nnoremap <C-l> :tab sp<CR>:YcmCompleter GoToDeclaration<CR>
+nnoremap <C-h> :tab sp<CR>:YcmCompleter GoToDefinition<CR>
 
 "Ctrl - k, jump to tag in new tab
 nmap <C-k> <C-w><C-]><C-w>T
@@ -106,4 +108,13 @@ augroup resCur
 augroup END
 
 :let Grep_Default_Filelist = '*.c *.h *.go'
+
+let g:ycm_confirm_extra_conf = 0
+let g:go_fmt_fail_silently = 0
+let g:go_auto_type_info = 1
+set completeopt-=preview
+
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
