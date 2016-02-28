@@ -118,3 +118,10 @@ set completeopt-=preview
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
+function! SetupEnvironment()
+  let l:path = expand('%:p')
+  if l:path =~ 'cleanflight'
+    setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4
+  endif
+endfunction
+autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
