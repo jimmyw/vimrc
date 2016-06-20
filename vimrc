@@ -12,9 +12,10 @@ Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'fsouza/go.vim'
 "Bundle 'kien/ctrlp.vim'
 " Tool for co-op vimm
-"Bundle 'FredKSchott/CoVim'
+Bundle 'FredKSchott/CoVim'
 Bundle 'kshenoy/vim-signature'
 "Bundle 'yegappan/grep'
+"
 
 call vundle#end()
 filetype plugin indent on
@@ -46,6 +47,8 @@ set title
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set wildmode=longest:list
 set scrolloff=4
+set history=1000
+set guifont=Hasklig:h14
 
 " Will make vim little more snappy
 "set lazyredraw
@@ -143,4 +146,10 @@ func GitGrepWord()
   call GitGrep('-w -e ', getreg('z'))
 endf
 nmap <C-g> :call GitGrepWord()<CR>
+
+let CoVim_default_name = "jimmy"
+let CoVim_default_port = "5555"
+
+"map <C-K> :pyf /usr/local/Cellar/clang-format/2015-07-31/share/clang/clang-format.py<cr>
+"imap <C-K> <c-o>:pyf /usr/local/Cellar/clang-format/2015-07-31/share/clang/clang-format.py<cr>
 
