@@ -2,15 +2,16 @@ set nocompatible              " be iMproved
 filetype off                  " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'fsouza/go.vim'
-"Plugin 'kien/ctrlp.vim'
+call vundle#begin()
+Bundle 'gmarik/Vundle.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'nsf/gocode', {'rtp': 'vim/'}
+Bundle 'fsouza/go.vim'
+Bundle 'rust-lang/rust.vim'
+"Bundle 'kien/ctrlp.vim'
 " Tool for co-op vimm
 Plugin 'FredKSchott/CoVim'
 Plugin 'kshenoy/vim-signature'
