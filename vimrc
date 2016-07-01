@@ -84,6 +84,8 @@ map Q <Nop>
 "Ctrl x and Ctrl c
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
+nmap <C-p> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <C-p> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 filetype indent on
 
