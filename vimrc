@@ -14,8 +14,11 @@ Plugin 'fsouza/go.vim'
 " Tool for co-op vimm
 Plugin 'FredKSchott/CoVim'
 Plugin 'kshenoy/vim-signature'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/vimshell'
+Plugin 'mileszs/ack.vim'
 "Plugin 'yegappan/grep'
-"
+"Plugin 'bronson/vim-trailing-whitespace'
 
 filetype plugin indent on
 
@@ -60,11 +63,9 @@ map <F2> :w<CR>
 map <F3> :tabn<CR>
 map <F4> :%s/\s\+$//<CR>
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-map <F6> :NERDTree<CR>
+map <F6> :NERDTreeToggle<CR>
 map <F8> :Fmt<CR>
 map <F10> :q<CR>
-nnoremap <C-l> :tab sp<CR>:YcmCompleter GoToDeclaration<CR>
-nnoremap <C-h> :tab sp<CR>:YcmCompleter GoToDefinition<CR>
 
 "Ctrl - k, jump to tag in new tab
 nmap <C-k> <C-w><C-]><C-w>T
@@ -86,6 +87,9 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 nmap <C-p> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <C-p> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <C-f> :Ack <cword><CR>
+nnoremap <C-l> :tab sp<CR>:YcmCompleter GoToDeclaration<CR>
+nnoremap <C-h> :tab sp<CR>:YcmCompleter GoToDefinition<CR>
 
 filetype indent on
 
@@ -130,23 +134,10 @@ function! SetupEnvironment()
 endfunction
 autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
 
-func GitGrep(...)
-  let save = &grepprg
-  set grepprg=git\ grep\ -n\ $*
-  let s = 'grep'
-  for i in a:000
-    let s = s . ' ' . i
-  endfor
-  exe s
-  let &grepprg = save
-endfun
-command -nargs=? G call GitGrep(<f-args>)
-
-func GitGrepWord()
-  normal! "zyiw
-  call GitGrep('-w -e ', getreg('z'))
-endf
-nmap <C-g> :call GitGrepWord()<CR>
+if executable('ag')
+  "let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'git grep'
+endif
 
 let CoVim_default_name = "jimmy"
 let CoVim_default_port = "5555"
