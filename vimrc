@@ -15,8 +15,6 @@ Bundle 'rust-lang/rust.vim'
 " Tool for co-op vimm
 Plugin 'FredKSchott/CoVim'
 Plugin 'kshenoy/vim-signature'
-Plugin 'Shougo/vimproc'
-Plugin 'Shougo/vimshell'
 Plugin 'mileszs/ack.vim'
 "Plugin 'yegappan/grep'
 "Plugin 'bronson/vim-trailing-whitespace'
@@ -145,4 +143,10 @@ let CoVim_default_port = "5555"
 
 "map <C-K> :pyf /usr/local/Cellar/clang-format/2015-07-31/share/clang/clang-format.py<cr>
 "imap <C-K> <c-o>:pyf /usr/local/Cellar/clang-format/2015-07-31/share/clang/clang-format.py<cr>
+
+let git_settings = system("git config --get vim.settings")
+if strlen(git_settings)
+    exe "set" git_settings
+endif
+
 
