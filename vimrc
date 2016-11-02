@@ -12,8 +12,6 @@ Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'fsouza/go.vim'
 Bundle 'rust-lang/rust.vim'
 "Bundle 'kien/ctrlp.vim'
-" Tool for co-op vimm
-Plugin 'FredKSchott/CoVim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'mileszs/ack.vim'
 "Plugin 'yegappan/grep'
