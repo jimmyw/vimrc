@@ -3,22 +3,23 @@ filetype off                  " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Bundle 'gmarik/Vundle.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'nsf/gocode', {'rtp': 'vim/'}
-Bundle 'Blackrush/vim-gocode'
-Bundle 'fsouza/go.vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'Blackrush/vim-gocode'
+Plugin 'fsouza/go.vim'
 Plugin 'fatih/vim-go'
-Bundle 'rust-lang/rust.vim'
-"Bundle 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'mileszs/ack.vim'
 "Plugin 'yegappan/grep'
 "Plugin 'bronson/vim-trailing-whitespace'
 
+call vundle#end()
 filetype plugin indent on
 
 :filetype plugin on
