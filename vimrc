@@ -9,7 +9,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nsf/gocode', {'rtp': 'vim/'}
+Bundle 'Blackrush/vim-gocode'
 Bundle 'fsouza/go.vim'
+Plugin 'fatih/vim-go'
 Bundle 'rust-lang/rust.vim'
 "Bundle 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
@@ -22,7 +24,6 @@ filetype plugin indent on
 :filetype plugin on
 :set spell spelllang=en_us
 
-autocmd BufWritePre *.go Fmt
 
 set backspace=2
 set bg=dark
