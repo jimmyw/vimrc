@@ -25,6 +25,7 @@ filetype plugin indent on
 :filetype plugin on
 :set spell spelllang=en_us
 
+colorscheme default
 
 set backspace=2
 set bg=dark
