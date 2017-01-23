@@ -10,7 +10,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'fsouza/go.vim'
 Plugin 'fatih/vim-go'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
