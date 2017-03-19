@@ -23,39 +23,53 @@ filetype plugin indent on
 :filetype plugin on
 :set spell spelllang=en_us
 
+" https://dougblack.io/words/a-good-vimrc.html
+
+" Colors
 colorscheme default
-
-set backspace=2
 set bg=dark
-set encoding=utf-8
-set expandtab
-set fileencodings=utf-8
-set hlsearch
-set incsearch
-set ls=2
-set mouse=i
-set number
-set shiftwidth=2
-set showmatch
-set smartindent
-set statusline=%F%m%r%h%w\ ascii=\%03.3b\ hex=\%02.2B\ pos=%04l,%04v(%04c)\ (%p%%)\ len=%L\
-set tabpagemax=100
-set tabstop=2
-set tags=./tags;/
-set termencoding=utf-8
-set title
-set viminfo='10,\"100,:20,%,n~/.viminfo
-set wildmode=longest:list
-set scrolloff=4
-set history=1000
-set guifont=Hasklig:h14
-
-" Will make vim little more snappy
-"set lazyredraw
-"set ttyfast
-
 :syntax on
 
+" Spaces & Tabs
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+set shiftwidth=2    " Steps for >> <<
+set smartindent     " Indents smartly when programming c
+
+" UI Config
+set number          " show line numbers
+set showcmd         " show command in bottom bar
+filetype indent on  " load ~/.vim/indent/python.vim
+set wildmode=longest:list " Defines how tab is working when opening files.
+"set lazyredraw     " Will make vim little more snappy
+"set ttyfast        " Will make vim little more snappy
+set showmatch       " highlight matching [{()}]
+set ls=2            " This makes Vim show a status line even when only one window is shown.
+set statusline=%F%m%r%h%w\ ascii=\%03.3b\ hex=\%02.2B\ pos=%04l,%04v(%04c)\ (%p%%)\ len=%L\
+set tabpagemax=100  " Maximum number of tabs
+set mouse=i
+set title           " Tells the terminalto set a correct title
+set viminfo='10,\"100,:20,%,n~/.viminfo
+set scrolloff=4     " number of context lines you would like to see above and below the cursor.
+set history=1000    " Cmd history len
+set guifont=Hasklig:h14
+set backspace=2     " make backspace work like most other apps
+
+
+" Searching
+set hlsearch        " highlight matches
+set incsearch       " search as characters are entered
+set tags=./tags;/
+
+" Encodings
+set encoding=utf-8
+set fileencodings=utf-8
+set termencoding=utf-8
+
+
+" Key bindings
+let mapleader=","   " leader is comma
 map <F1> :tabp<CR>
 map <F2> :w<CR>
 map <F3> :tabn<CR>
@@ -89,7 +103,6 @@ nmap <C-f> :Ack <cword><CR>
 nnoremap <C-l> :tab sp<CR>:YcmCompleter GoToDeclaration<CR>
 nnoremap <C-h> :tab sp<CR>:YcmCompleter GoToDefinition<CR>
 
-filetype indent on
 
 "autocmd Filetype html setlocal ts=2 sts=2 sw=2
 "autocmd Filetype css setlocal ts=2 sts=2 sw=2
@@ -143,9 +156,10 @@ let CoVim_default_port = "5555"
 "map <C-K> :pyf /usr/local/Cellar/clang-format/2015-07-31/share/clang/clang-format.py<cr>
 "imap <C-K> <c-o>:pyf /usr/local/Cellar/clang-format/2015-07-31/share/clang/clang-format.py<cr>
 
-let git_settings = system("git config --get vim.settings")
-if strlen(git_settings)
-    exe "set" git_settings
-endif
+" Read vim settings from the git repo
+"let git_settings = system("git config --get vim.settings")
+"if strlen(git_settings)
+"    exe "set" git_settings
+" endif
 
 
