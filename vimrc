@@ -14,6 +14,7 @@ Plugin 'fatih/vim-go'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'mileszs/ack.vim'
+Plugin 'Superbil/llvm.vim'
 "Plugin 'yegappan/grep'
 "Plugin 'bronson/vim-trailing-whitespace'
 
