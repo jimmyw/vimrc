@@ -158,7 +158,7 @@ autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
 
 if executable('ag')
   "let g:ackprg = 'ag --vimgrep'
-  let g:ackprg = 'git grep'
+  let g:ackprg = 'git grep -n'
 endif
 
 let CoVim_default_name = "jimmy"
