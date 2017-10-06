@@ -56,6 +56,7 @@ set scrolloff=4     " number of context lines you would like to see above and be
 set history=1000    " Cmd history len
 set guifont=Hasklig:h14
 set backspace=2     " make backspace work like most other apps
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.a   " Ignore most object files
 
 
 " Searching
@@ -172,4 +173,10 @@ let CoVim_default_port = "5555"
 "    exe "set" git_settings
 " endif
 
-
+" Ctrl - P
+" let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
