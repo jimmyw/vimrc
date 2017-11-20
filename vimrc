@@ -11,7 +11,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
-"Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'mileszs/ack.vim'
 Plugin 'Superbil/llvm.vim'
@@ -96,14 +96,20 @@ map Q <Nop>
 
 
 "Ctrl x and Ctrl c
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
-nmap <C-p> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <C-p> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+"vmap <C-x> :!pbcopy<CR>
+"vmap <C-c> :w !pbcopy<CR><CR>
+"nmap <C-p> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+"imap <C-p> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <C-f> :Ack <cword><CR>
 nnoremap <C-l> :tab sp<CR>:YcmCompleter GoToDeclaration<CR>
 nnoremap <C-h> :tab sp<CR>:YcmCompleter GoToDefinition<CR>
 
+"Ctrl p plugin
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] " Only include git checked in files
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ } " Tab by default enter
 
 "autocmd Filetype html setlocal ts=2 sts=2 sw=2
 "autocmd Filetype css setlocal ts=2 sts=2 sw=2
