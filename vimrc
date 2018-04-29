@@ -22,7 +22,7 @@ call vundle#end()
 filetype plugin indent on
 
 :filetype plugin on
-:set spell spelllang=en_us
+":set spell spelllang=en_us
 
 " https://dougblack.io/words/a-good-vimrc.html
 
@@ -116,8 +116,8 @@ let g:ctrlp_prompt_mappings = {
 "autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " Make ending space on files glow red
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$\| \+\ze\t/
+":highlight ExtraWhitespace ctermbg=red guibg=red
+":match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " These functions make you return to the last place you edited the file after
 " loading the file.
@@ -147,6 +147,9 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 function! SetupEnvironment()
   let l:path = expand('%:p')
   if l:path =~ 'cleanflight'
+    setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4
+  endif
+  if l:path =~ 'OpenGround'
     setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4
   endif
 endfunction
