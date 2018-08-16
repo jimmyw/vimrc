@@ -8,6 +8,7 @@ Plugin 'rust-lang/rust.vim'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
@@ -78,7 +79,9 @@ map <F3> :tabn<CR>
 map <F4> :%s/\s\+$//<CR>
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map <F6> :NERDTreeToggle<CR>
+" nn <F7> :setlocal spell! spell?<CR>
 map <F8> :Fmt<CR>
+map <F9> :TagbarToggle<CR>
 map <F10> :q<CR>
 
 "Ctrl - k, jump to tag in new tab
