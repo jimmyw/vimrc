@@ -1,25 +1,24 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'fatih/vim-go'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kshenoy/vim-signature'
-Plugin 'mileszs/ack.vim'
-Plugin 'Superbil/llvm.vim'
-"Plugin 'yegappan/grep'
-"Plugin 'bronson/vim-trailing-whitespace'
+call plug#begin('~/.vim/plugged')
+Plug 'gmarik/Vundle.vim'
+Plug 'rust-lang/rust.vim'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'fatih/vim-go'
+Plug 'kien/ctrlp.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'mileszs/ack.vim'
+Plug 'Superbil/llvm.vim'
+"Plug 'yegappan/grep'
+"Plug 'bronson/vim-trailing-whitespace'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 :filetype plugin on
