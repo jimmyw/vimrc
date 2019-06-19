@@ -69,6 +69,9 @@ set encoding=utf-8
 set fileencodings=utf-8
 set termencoding=utf-8
 
+" List whitespace
+set listchars=tab:»·,trail:·
+set list
 
 " Key bindings
 let mapleader=","   " leader is comma
@@ -121,6 +124,7 @@ let g:ctrlp_prompt_mappings = {
 " Make ending space on files glow red
 ":highlight ExtraWhitespace ctermbg=red guibg=red
 ":match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd BufRead,BufNewFile *.go set nolist ts=4 sts=4 sw=4
 
 " These functions make you return to the last place you edited the file after
 " loading the file.
