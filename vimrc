@@ -79,7 +79,8 @@ map <F1> :tabp<CR>
 map <F2> :w<CR>
 map <F3> :tabn<CR>
 map <F4> :%s/\s\+$//<CR>
-:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+map <F5> :%s/\s\+$//<CR>
+":nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> "Also removes whitespace
 map <F6> :NERDTreeToggle<CR>
 " nn <F7> :setlocal spell! spell?<CR>
 map <F8> :Fmt<CR>
