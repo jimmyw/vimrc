@@ -18,9 +18,16 @@ Plug 'Superbil/llvm.vim'
 "Plug 'yegappan/grep'
 "Plug 'bronson/vim-trailing-whitespace'
 
+" Clangd integration
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'ajh17/vimcompletesme'
+
 call plug#end()
 filetype plugin indent on
-
+  
 :filetype plugin on
 ":set spell spelllang=en_us
 
@@ -82,9 +89,14 @@ map <F4> :%s/\s\+$//<CR>
 map <F5> :%s/\s\+$//<CR>
 ":nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> "Also removes whitespace
 map <F6> :NERDTreeToggle<CR>
+map <F7> :LspReferences<CR>
+"map <F8> :LspDeclaration<CR>
+map <F8> :LspDocumentDiagnostics<CR>
+map <F9> :LspDefinition<CR>
+"map <F8> :LspCodeAction<CR>
 " nn <F7> :setlocal spell! spell?<CR>
-map <F8> :Fmt<CR>
-map <F9> :TagbarToggle<CR>
+"map <F8> :Fmt<CR>
+"map <F9> :TagbarToggle<CR>
 map <F10> :q<CR>
 
 "Ctrl - k, jump to tag in new tab
@@ -187,3 +199,23 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
+
+augroup lsp_clangd
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+                \ 'name': 'clangd',
+                \ 'cmd': {server_info->['clangd', '-background-index']},
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                \ })
+    autocmd FileType c setlocal omnifunc=lsp#complete
+    autocmd FileType cpp setlocal omnifunc=lsp#complete
+    autocmd FileType objc setlocal omnifunc=lsp#complete
+    autocmd FileType objcpp setlocal omnifunc=lsp#complete
+augroup end
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+let g:lsp_diagnostics_echo_cursor = 1
+
