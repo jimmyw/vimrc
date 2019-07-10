@@ -89,10 +89,10 @@ map <F4> :%s/\s\+$//<CR>
 map <F5> :%s/\s\+$//<CR>
 ":nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> "Also removes whitespace
 map <F6> :NERDTreeToggle<CR>
-map <F7> :LspReferences<CR>
+map <F7> :LspDefinition<CR>
+map <F8> :LspReferences<CR>
+map <F9> :LspDocumentDiagnostics<CR>
 "map <F8> :LspDeclaration<CR>
-map <F8> :LspDocumentDiagnostics<CR>
-map <F9> :LspDefinition<CR>
 "map <F8> :LspCodeAction<CR>
 " nn <F7> :setlocal spell! spell?<CR>
 "map <F8> :Fmt<CR>
