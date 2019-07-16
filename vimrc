@@ -86,13 +86,13 @@ map <F1> :tabp<CR>
 map <F2> :w<CR>
 map <F3> :tabn<CR>
 map <F4> :%s/\s\+$//<CR>
-map <F5> :%s/\s\+$//<CR>
+"map <F5> :%s/\s\+$//<CR>
 ":nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> "Also removes whitespace
-map <F6> :NERDTreeToggle<CR>
+map <F5> :NERDTreeToggle<CR>
+map <F6> :LspDeclaration<CR>
 map <F7> :LspDefinition<CR>
 map <F8> :LspReferences<CR>
 map <F9> :LspDocumentDiagnostics<CR>
-"map <F8> :LspDeclaration<CR>
 "map <F8> :LspCodeAction<CR>
 " nn <F7> :setlocal spell! spell?<CR>
 "map <F8> :Fmt<CR>
