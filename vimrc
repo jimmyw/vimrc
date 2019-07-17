@@ -17,6 +17,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Superbil/llvm.vim'
 "Plug 'yegappan/grep'
 "Plug 'bronson/vim-trailing-whitespace'
+Plug 'morhetz/gruvbox'
 
 " Clangd integration
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -34,7 +35,9 @@ filetype plugin indent on
 " https://dougblack.io/words/a-good-vimrc.html
 
 " Colors
-colorscheme default
+"colorscheme default
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 set bg=dark
 :syntax on
 
@@ -218,4 +221,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 let g:lsp_diagnostics_echo_cursor = 1
+
+" In quickfix windows, open in new tab by default
+"set switchbuf+=newtab
+"set switchbuf+=usetab,newtab
+"autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+"autocmd FileType qf nnoremap <buffer> <Enter> <C-W><Enter><C-W>T
 
