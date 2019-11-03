@@ -108,10 +108,10 @@ nmap <C-k> <C-w><C-]><C-w>T
 nmap ,h :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
 "Git plugin
-nmap ; <Plug>GitGutterNextHunk
-nmap ' <Plug>GitGutterPrevHunk
-nmap ö <Plug>GitGutterPrevHunk
-nmap ä <Plug>GitGutterNextHunk
+nmap ; <Plug>(GitGutterNextHunk)
+nmap ' <Plug>(GitGutterPrevHunk)
+nmap ö <Plug>(GitGutterPrevHunk)
+nmap ä <Plug>(GitGutterNextHunk)
 
 "Disable ex mode
 map Q <Nop>
