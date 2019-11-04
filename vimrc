@@ -96,6 +96,9 @@ map <F6> :LspDeclaration<CR>
 map <F7> :LspDefinition<CR>
 map <F8> :LspReferences<CR>
 map <F9> :LspDocumentDiagnostics<CR>
+map <S-F7> :LspPeekDefinition<CR>
+map <S-F8> :LspPeekReferences<CR>
+map <S-F9> :LspPeekDocumentDiagnostics<CR>
 "map <F8> :LspCodeAction<CR>
 " nn <F7> :setlocal spell! spell?<CR>
 "map <F8> :Fmt<CR>
@@ -227,4 +230,22 @@ let g:lsp_diagnostics_echo_cursor = 1
 "set switchbuf+=usetab,newtab
 "autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 "autocmd FileType qf nnoremap <buffer> <Enter> <C-W><Enter><C-W>T
+
+" will disable autopopup
+"let g:asyncomplete_auto_popup = 0
+
+" All below will enable tab autocomplete
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Preview window
+set completeopt+=preview
 
